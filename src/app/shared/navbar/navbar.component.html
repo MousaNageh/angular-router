@@ -1,0 +1,14 @@
+<nav class=" uk-background-secondary " uk-navbar>
+    <div class="uk-navbar-left ">
+        <ul class="uk-navbar-nav">
+            <a class="uk-navbar-item uk-logo" routerLink="/">Logo</a>
+        </ul>
+    </div>
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav ">
+            <li class="uk-navbar-item" routerLinkActive="uk-active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/">Home</a></li>
+            <li class="uk-navbar-item" routerLinkActive="uk-active"><a [routerLink]="['/about']">about</a></li>
+            <li class="uk-navbar-item" routerLinkActive="uk-active"><a routerLink="/users">users</a></li>
+        </ul>
+    </div>
+</nav>
