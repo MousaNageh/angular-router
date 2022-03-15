@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CanComponentDeactivate } from '../can-deactivate.guard';
+import { SubjectHomeService } from '../home/subject-home.service';
 
 @Component({
   selector: 'app-about',
@@ -9,11 +10,18 @@ import { CanComponentDeactivate } from '../can-deactivate.guard';
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit, CanComponentDeactivate {
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,private subject:SubjectHomeService) {
     console.log(this.route.snapshot.data);
     this.route.data.subscribe((val) => {
       console.log(val);
+      this.subject.subjectEmiiter.subscribe(val=>{
+        console.log(val)
+      });
+      this.subject.subjectEventEmitter.subscribe(val=>{
+        console.log(val);
+      })
     });
+    
   }
 
   ngOnInit(): void {}

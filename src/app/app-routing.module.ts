@@ -7,6 +7,7 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { AuthGuard } from './auth.guard';
 import { canDeactivateGuard } from './can-deactivate.guard';
+import { RouterResolver } from './router.resolver';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
     canDeactivate: [canDeactivateGuard],
     data: {
       val: 'this router data',
+    },
+    resolve: {
+      data: RouterResolver,
     },
   },
   {
